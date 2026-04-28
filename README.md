@@ -17,12 +17,6 @@ Code implementations of academic concepts used in technical computing:
 * **Linear Algebra:** Matrix operations including addition, multiplication, and transposition.
 * **Number Theory:** Prime factorization and modular arithmetic.
 
-
-### 3. Technical Physics & Electronics
-Foundational simulations and troubleshooting documentation:
-* **Simple Harmonic Oscillators:** Algorithmic representation of SHM.
-* **Power Systems:** Troubleshooting logic for 12V power input systems and UPS hardware.
-
 ## 🛠️ Tech Stack
 
 | Category | Technologies |
