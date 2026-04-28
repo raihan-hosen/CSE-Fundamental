@@ -22,7 +22,6 @@ Code implementations of academic concepts used in technical computing:
 | Category | Technologies |
 | :--- | :--- |
 | **Languages** | C (C11), C++ |
-| **Web Frontend** | HTML5, CSS3 |
 | **Tools** | GCC, VS Code |
 
 ## 🚀 Getting Started
