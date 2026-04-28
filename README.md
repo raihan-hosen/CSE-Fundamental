@@ -17,13 +17,8 @@ Code implementations of academic concepts used in technical computing:
 * **Linear Algebra:** Matrix operations including addition, multiplication, and transposition.
 * **Number Theory:** Prime factorization and modular arithmetic.
 
-### 3. Data Management & Web Integration
-Practical application of theoretical concepts into functional software:
-* **Medicine Dashboard:** A tracker system utilizing **PHP** and **MySQL**.
-* **Database Design:** Focus on relational schema, table normalization, and CRUD operations.
-* **UI/UX:** Responsive layouts built with HTML5 and CSS3.
 
-### 4. Technical Physics & Electronics
+### 3. Technical Physics & Electronics
 Foundational simulations and troubleshooting documentation:
 * **Simple Harmonic Oscillators:** Algorithmic representation of SHM.
 * **Power Systems:** Troubleshooting logic for 12V power input systems and UPS hardware.
