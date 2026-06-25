@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+#include <numeric> // For std::accumulate
+
+using namespace std;
+
+int findEquilibrium(const vector<int>& v, int n) {
+    // Step 1: Calculate the total sum of the array
+    long long total_sum = 0;
+    for (int num : v) {
+        total_sum += num;
+    }
+
+    long long left_sum = 0;
+
+    // Step 2 & 3: Iterate and check balance
+    for (int i = 0; i < n; i++) {
+        // Right sum is total sum minus left sum minus current element
+        long long right_sum = total_sum - left_sum - v[i];
+
+        if (left_sum == right_sum) {
+            return i; // Found equilibrium index
+        }
+
+        left_sum += v[i]; // Update left sum for next iteration
+    }
+
+    return -1; // Return -1 if no equilibrium index exists
+}
+
+int main() {
+    // Fast I/O
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    if (!(cin >> n)) return 0;
+
+    // FIX: Pre-allocate space for 'n' elements to avoid SIGSEGV
+    vector<int> v(n); 
+    for (int i = 0; i < n; i++) {
+        cin >> v[i];
+    }
+
+    cout << findEquilibrium(v, n) << "\n";
+
+    return 0;
+}
