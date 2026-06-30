@@ -38,6 +38,28 @@ void insert_at_end(Node *&head, Node *&Tail, long long int val)
     Tail = newNode;
 }
 
+bool checkduplicate(Node *Head)
+{
+    bool check = 0;
+    Node *temp = Head;
+    vector<int> fre(101, 0);
+
+    while (temp != NULL)
+    {
+        if (fre[temp->val] > 0)
+        {
+            check = 1;
+            break;
+        }
+        else
+        {
+            fre[temp->val]++;
+        }
+        temp = temp->next;
+    }
+    return check;
+}
+
 long long int print_linked_list(Node *&head)
 {
     long long int count = 0;
@@ -58,6 +80,12 @@ int main()
     Node *Tail = NULL;
     getdata(Head, Tail);
 
-    cout << print_linked_list(Head);
+    bool check = checkduplicate(Head);
+    if (check == 1)
+    {
+        cout << "YES";
+    }
+    else
+        cout << "NO";
     return 0;
 }
