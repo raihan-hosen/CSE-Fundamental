@@ -11,8 +11,8 @@ void print_to_n(long long n)
 }
 int main()
 {
-    long long n;
-    cin >> n;
-    print_to_n(n);
+    long long a;
+    cin >> a;
+    print_to_n(a);
     return 0;
 }
