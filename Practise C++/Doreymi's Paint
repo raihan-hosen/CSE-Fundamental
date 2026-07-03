@@ -1,0 +1,86 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int n;
+    cin >> n;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i)
+    {
+        cin >> a[i];
+    }
+
+    // Sort to group identical elements together
+    sort(a.begin(), a.end());
+
+    int unique_count = 0;
+    int first_freq = 0;
+    int second_freq = 0;
+
+    int i = 0;
+    while (i < n)
+    {
+        unique_count++;
+        int count = 0;
+        int current_val = a[i];
+
+        // Count occurrences of the current element
+        while (i < n && a[i] == current_val)
+        {
+            count++;
+            i++;
+        }
+
+        // Save frequencies of the first two unique numbers
+        if (unique_count == 1)
+        {
+            first_freq = count;
+        }
+        else if (unique_count == 2)
+        {
+            second_freq = count;
+        }
+    }
+
+    // Check if the configuration can form a good array
+    if (unique_count == 1)
+    {
+        cout << "Yes\n";
+    }
+    else if (unique_count == 2)
+    {
+        // Manual absolute difference calculation
+        int diff = first_freq - second_freq;
+        if (diff < 0)
+        {
+            diff = -diff;
+        }
+
+        if (diff <= 1)
+        {
+            cout << "Yes\n";
+        }
+        else
+        {
+            cout << "No\n";
+        }
+    }
+    else
+    {
+        cout << "No\n";
+    }
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+
+    return 0;
+}
