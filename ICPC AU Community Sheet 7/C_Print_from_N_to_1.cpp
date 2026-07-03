@@ -1,18 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
-void print_to_n(long long a)
+
+void print_n_to_1(long long n)
 {
-    if (a < 1)
+    if (n < 1)
     {
         return;
     }
-    cout << a << " ";
-    print_to_n(a - 1);
+
+    cout << n;
+
+    if (n > 1)
+    {
+        cout << " ";
+    }
+    print_n_to_1(n - 1);
 }
+
 int main()
 {
     long long n;
-    cin >> n;
-    print_to_n(n);
+    if (cin >> n)
+    {
+        print_n_to_1(n);
+    }
     return 0;
 }
