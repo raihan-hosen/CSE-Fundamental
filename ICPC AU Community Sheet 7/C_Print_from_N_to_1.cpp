@@ -1,13 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
-void print_to_n(long long n)
+void print_to_n(long long a)
 {
-    if (n < 1)
+    if (a < 1)
     {
         return;
     }
-    cout << n << " ";
-    print_to_n(n - 1);
+    cout << a << " ";
+    print_to_n(a - 1);
 }
 int main()
 {
