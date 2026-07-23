@@ -1,0 +1,141 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+public:
+    int val;
+    Node *prev;
+    Node *next;
+
+    Node(int v)
+    {
+        val = v;
+        prev = NULL;
+        next = NULL;
+    }
+};
+
+class DoublyLinkedList
+{
+public:
+    Node *head;
+    Node *tail;
+    int size;
+
+    DoublyLinkedList()
+    {
+        head = NULL;
+        tail = NULL;
+        size = 0;
+    }
+
+    void insert_at_head(int val)
+    {
+        Node *new_node = new Node(val);
+        if (head == NULL)
+        {
+            head = new_node;
+            tail = new_node;
+        }
+        else
+        {
+            new_node->next = head;
+            head->prev = new_node;
+            head = new_node;
+        }
+        size++;
+    }
+
+    void insert_at_tail(int val)
+    {
+        Node *new_node = new Node(val);
+        if (tail == NULL)
+        {
+            head = new_node;
+            tail = new_node;
+        }
+        else
+        {
+            tail->next = new_node;
+            new_node->prev = tail;
+            tail = new_node;
+        }
+        size++;
+    }
+
+    void insert_at_index(int index, int val)
+    {
+        if (index < 0 || index > size)
+        {
+            cout << "Invalid" << endl;
+            return;
+        }
+
+        if (index == 0)
+        {
+            insert_at_head(val);
+        }
+        else if (index == size)
+        {
+            insert_at_tail(val);
+        }
+        else
+        {
+            Node *new_node = new Node(val);
+            Node *temp = head;
+            for (int i = 0; i < index - 1; i++)
+            {
+                temp = temp->next;
+            }
+            new_node->next = temp->next;
+            new_node->prev = temp;
+            temp->next->prev = new_node;
+            temp->next = new_node;
+            size++;
+        }
+
+        print_left_to_right();
+        print_right_to_left();
+    }
+
+    void print_left_to_right()
+    {
+        cout << "L -> ";
+        Node *temp = head;
+        while (temp != NULL)
+        {
+            cout << temp->val << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    void print_right_to_left()
+    {
+        cout << "R -> ";
+        Node *temp = tail;
+        while (temp != NULL)
+        {
+            cout << temp->val << " ";
+            temp = temp->prev;
+        }
+        cout << endl;
+    }
+};
+
+int main()
+{
+    int q;
+    cin >> q;
+
+    DoublyLinkedList list;
+    while (q--)
+    {
+        int x, v;
+        cin >> x >> v;
+        list.insert_at_index(x, v);
+    }
+
+    return 0;
+}
